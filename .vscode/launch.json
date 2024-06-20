@@ -1,88 +1,547 @@
-{
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "command": "npm start",
-            "name": "Run npm start",
-            "request": "launch",
-            "type": "node-terminal"
-        },
-
-        {
-            "type": "chrome",
-            ```html
-            <!DOCTYPE html>
-            <html lang="en">
-            <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Spin Wheel</title>
-            <style>
-                body {
-                    font-family: 'Arial', sans-serif;
-                    margin: 0;
-                    padding: 0;
-                    background-color: #f5f5f5;
-                }
-                header {
-                    background-color: #333;
-                    color: #fff;
-                    text-align: center;
-                    padding: 10px 0;
-                }
-                section {
-                    text-align: center;
-                    padding: 20px;
-                }
-                .wheel {
-                    width: 200px;
-                    height: 200px;
-                    background-color: #f00;
-                    border-radius: 50%;
-                    margin: 0 auto;
-                    position: relative;
-                    animation: spin 2s linear infinite;
-                }
-                @keyframes spin {
-                    100% {
-                        transform: rotate(360deg);
-                    }
-                }
-                button {
-                    padding: 10px 20px;
-                    background-color: #333;
-                    color: #fff;
-                    border: none;
-                    cursor: pointer;
-                    margin-top: 20px;
-                }
-            </style>
-            </head>
-            <body>
-            <header>
-                <h1>Spin Wheel</h1>
-            </header>
-            <section>
-                <div class="wheel"></div>
-                <button onclick="spinWheel()">Spin</button>
-            </section>
-            <script>
-                function spinWheel() {
-                    const wheel = document.querySelector('.wheel');
-                    wheel.style.animation = 'none';
-                    setTimeout(() => {
-                        wheel.style.animation = 'spin 2s linear infinite';
-                    }, 100);
-                }
-            </script>
-            </body>
-            </html> "request": "launch",
-            "name": "Launch Chrome against localhost",
-            "url": "http://localhost:8080",
-            "webRoot": "${workspaceFolder}"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIGITALSHINERS COMPANY</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 1;
+            padding: 10;
+            background-color: hsl(22, 93%, 59%);
         }
-    ]
-}
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        #main-header {
+            background-color: blue;
+            color: Grey;
+            padding-top: 5px;
+            min-height: 80px;
+            border-bottom: #0779e4 3px solid;
+            position: relative;
+            overflow: hidden;
+        }
+        #main-header h1 {
+            position: absolute;
+            white-space: nowrap;
+            text-transform: uppercase;
+            font-size: 30px;
+            animation: moveText 7s linear infinite;
+        }
+        @keyframes moveText {
+            from { left: 100%; }
+            to { left: -100%; }
+        }
+        .btn {
+            display: inline-block;
+            color: #333;
+            background-color: #cfffff;
+            padding: 4px 18px;
+            border: solid 1px #333;
+            text-decoration: none;
+            margin: 5px;
+        }
+        .btn:hover {
+            background-color: #e4e4e4;
+        }
+        .form-section, .machine-section, .history-section, .rented-machines-section, .vip-section {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+        .form-container, .machine-list, .history-container, .rented-machines-container, .vip-container {
+            background: orange;
+            padding: 20px;
+            margin: 30px 0;
+            border: 1px solid #ddd;
+        }
+        input[type="text"], input[type="password"], input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .history, .rented-machines {
+            margin-top: 20px;
+        }
+        .history table, .rented-machines table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .history th, .history td, .rented-machines th, .rented-machines td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .history th, .rented-machines th {
+            background-color: blue;
+        }
+        .balance
+            font-size: 18px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <header id="main-header">
+        <div class="container">
+            <h1>DIGITALSHINERS COMPANY</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Registration Form -->
+        <div id="registrationSection" class="form-section active">
+            <div class="form-container">
+                <h2>Register</h2>
+                <form id="registrationForm">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                    <label for="phone">Phone (+254):</label>
+                    <input type="text" id="phone" name="phone" required>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                    <button type="button" onclick="register()">Register</button>
+                    <button type="button" onclick="switchToLogin()">Already Registered? Login</button>
+ </form>
+            </div>
+        </div>
+
+        <!-- Login Form -->
+        <div id="loginSection" class="form-section">
+            <div class="form-container">
+                <h2>Login</h2>
+                <form id="loginForm">
+                    <label for="loginUsername">Username:</label>
+                    <input type="text" id="loginUsername" name="loginUsername" required>
+                    <label for="loginPassword">Password:</label>
+                    <input type="password" id="loginPassword" name="loginPassword" required>
+                    <button type="button" onclick="login()">Login</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Machine List -->
+        <div id="machineSection" class="machine-section">
+            <div class="balance" id="userBalance"></div>
+            <div>
+                <button class="btn" onclick="showVIPSection()">VIP</button>
+                
+                <button class="btn" onclick="showTransactionHistory()">Transaction History</button>
+                <button class="btn" onclick="showRentedMachines()">Rented Machines</button>
+            </div>
+
+            <div class="machine-list">
+                <h2>Available Machines</h2>
+                <div id="machines">
+                    <!-- Machines will be listed here dynamically -->
+                </div>
+            </div>
+            <div>
+        <button class="btn" style="margin-top: 10px;" onclick="openWhatsApp()">WhatsApp</button> 
+                <button class="btn" onclick="withdraw()">Withdraw</button>
+                  
+                <button class="btn" onclick="deposit()">Deposit</button>
+                 <h0.5 style="color: blue;">www.digitalshiners.com</h0.5>        
+</div>
+        </div>
+
+        <!-- Income and Withdrawal History -->
+        <div id="historySection" class="history-section">
+            <div class="history-container">
+                <h2>Transaction History</h2>
+                <table id="withdrawalHistory">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Amount (Ksh)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Withdrawal history will be listed here dynamically -->
+                    </tbody>
+                </table>
+            </div>
+            <button class="btn" onclick="goBack()">Back</button>
+        </div>
+
+        <!-- Rented Machines List -->
+        <div id="rentedMachinesSection" class="rented-machines-section">
+            <div class="rented-machines-container">
+                <h2>Rented Machines</h2>
+                <table id="rentedMachines">
+                    <thead>
+                        <tr>
+                            <th>Machine Name</th>
+                            <th>Rental Price (Ksh)</th>
+                            <th>Daily Income (Ksh)</th>
+                            <th>Rented Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Rented machines will be listed here dynamically -->
+                    </tbody>
+                </table>
+            </div>
+            <button class="btn" onclick="goBack()">Back</button>
+            <button class="btn" onclick="receiveIncome()">Receive Income</button>
+        </div>
+
+        <!-- VIP Section -->
+        <div id="vipSection" class="vip-section">
+            <div class="vip-container">
+                <h2>VIP Section</h2>
+                <div>
+                    <button class="btn" onclick="showVIP1()">VIP2</button>
+                    <button class="btn" onclick="showVIP2()">VIP3</button>
+                    <button class="btn" onclick="showVIP3()">VIP4</button>
+                </div>
+                <div id="vipMachines">
+                    <!-- VIP machines will be listed here dynamically -->
+                </div>
+            </div>
+            <button class="btn" onclick="goBack()">Back</button>
+           
+        </div> 
+        </div>
+        
+    <script>
+        // Sample data for machines
+        const machines = [
+            { id: 1, name: "Machine A001", rentalPrice: 1000, dailyIncome: 96 },
+            { id: 2, name: "Machine B001", rentalPrice: 2000, dailyIncome: 190 },
+            { id: 3, name: "Machine C001", rentalPrice: 3000, dailyIncome: 270 },
+        ];
+
+        // Sample data for VIP machines
+        const vipMachines = {
+            vip1: [
+                { id: 4, name: "Machine A002", rentalPrice: 1500, dailyIncome: 110 },
+                { id: 5, name: "Machine B002", rentalPrice: 2500, dailyIncome: 220 },
+                { id: 6, name: "Machine C002", rentalPrice: 3500, dailyIncome: 310 },
+            ],
+            vip2: [
+                { id: 7, name: "Machine A003", rentalPrice: 2000, dailyIncome: 200 },
+                { id: 8, name: "Machine B003", rentalPrice: 3000, dailyIncome: 250 },
+                { id: 9, name: "Machine C003", rentalPrice: 4000, dailyIncome: 370 },
+            ],
+            vip3: [
+                { id: 10, name: "Machine A004", rentalPrice: 4500, dailyIncome: 410 },
+                { id: 11, name: "Machine B004", rentalPrice: 8000, dailyIncome: 600 },
+                { id: 12, name: "Machine C004", rentalPrice: 10000, dailyIncome: 800 },
+            ]
+        };
+
+        // Array to store registered users
+        const users = [];
+
+        // Current logged-in user
+        let currentUser = null;
+
+        // Array to store income history
+        const incomeHistory = [];
+
+        // Array to store withdrawal history
+        const withdrawalHistory = [];
+
+        function register() {
+            const username = document.getElementById('username').value;
+            const phone = document.getElementById('phone').value;
+            const password = document.getElementById('password').value;
+
+            users.push({ username, phone, password, rentedMachines: [], income: 0 });
+            alert('Registration successful!');
+            document.getElementById('registrationForm').reset();
+            document.getElementById('registrationSection').classList.remove('active');
+            document.getElementById('loginSection').classList.add('active');
+        }
+
+        function login() {
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+
+            currentUser = users.find(user => user.username === username && user.password === password);
+
+            if (currentUser) {
+                alert('Login successful!');
+                document.getElementById('loginSection').classList.remove('active');
+                document.getElementById('machineSection').classList.add('active');
+                showMachines();
+                updateBalance();
+            } else {
+                alert('Invalid username or password');
+            }
+            document.getElementById('loginForm').reset();
+        }
+
+        // Function to display available machines
+        function showMachines() {
+            const machinesDiv = document.getElementById('machines');
+            machinesDiv.innerHTML = '';
+
+            machines.forEach(machine => {
+                const machineDiv = document.createElement('div');
+                machineDiv.innerHTML = `
+                    <h3>${machine.name}</h3>
+                    <p>Rental Price: Ksh ${machine.rentalPrice}</p>
+                    <p>Daily Income: Ksh ${machine.dailyIncome}</p>
+                    <button onclick="rentMachine(${machine.id})">Rent</button>
+                `;
+                machinesDiv.appendChild(machineDiv);
+            });
+        }
+
+        // Function to rent a machine
+        function rentMachine(machineId) {
+            const machine = [...machines, ...vipMachines.vip1, ...vipMachines.vip2, ...vipMachines.vip3].find(m => m.id === machineId);
+            if (confirm(`Do you want to rent ${machine.name} for Ksh ${machine.rentalPrice}?`)) {
+                if (currentUser.income >= machine.rentalPrice) { // Check if user has enough balance
+                    currentUser.rentedMachines.push({ ...machine, rentedDate: new Date().toLocaleDateString() });
+                    currentUser.income -= machine.rentalPrice; // Deduct rental price from balance
+                    alert(`You rented ${machine.name}`);
+                    updateBalance();
+                } else {
+                    alert('Insufficient balance to rent this machine.');
+                }
+            }
+        }
+
+        // Function to update user's income based on rented machines
+        function receiveIncome() {
+            const today = new Date().toLocaleDateString();
+
+            currentUser.rentedMachines.forEach(machine => {
+                if (!machine.lastIncomeDate || machine.lastIncomeDate !== today) {
+                    machine.lastIncomeDate = today;
+                    currentUser.income += machine.dailyIncome;
+                    incomeHistory.push({ date: today, amount: machine.dailyIncome });
+                }
+            });
+
+            updateIncomeHistory();
+            alert(`You received income for today!`);
+            updateBalance();
+        }
+
+        // Function to update income history table
+        function updateIncomeHistory() {
+            const incomeTable = document.getElementById('incomeHistory')?.querySelector('tbody');
+            if (incomeTable) {
+                incomeTable.innerHTML = '';
+
+                incomeHistory.forEach(record => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${record.date}</td>
+                        <td>Ksh ${record.amount}</td>
+                    `;
+                    incomeTable.appendChild(row);
+                });
+            }
+        }
+
+        // Function to withdraw money
+        function withdraw() {
+            const amount = prompt('Enter amount to withdraw:');
+            if (amount && !isNaN(amount)) {
+                if (parseFloat(amount) <= currentUser.income) {
+                    const today = new Date().toLocaleString();
+                    withdrawalHistory.push({ date: today, amount: parseFloat(amount) });
+                    currentUser.income -= parseFloat(amount);
+                    updateWithdrawalHistory();
+                    alert(`You withdrew Ksh ${amount}`);
+                    updateBalance();
+                } else {
+                    alert('Insufficient funds');
+                }
+            } else {
+                alert('Invalid amount');
+            }
+        }
+
+        // Function to deposit money
+        function deposit() {
+            const amount = prompt('Enter amount to deposit:');
+            if (amount && !isNaN(amount)) {
+                currentUser.income += parseFloat(amount);
+                alert(`You deposited Ksh ${amount}`);
+                updateBalance();
+            } else {
+                alert('Invalid amount');
+            }
+        }
+
+        // Function to show team (under development)
+        function showTeam() {
+            alert('Team section is under development.');
+        }
+
+        // Function to show service options
+        function showService() {
+            document.getElementById('machineSection').classList.remove('active');
+            document.getElementById('serviceSection').classList.add('active');
+        }
+
+        // Function to open WhatsApp link
+        function openWhatsApp() {
+            window.open('https://chat.whatsapp.com/KDH1Y9kGg804Zgn5z3pbxt');
+        }
+
+        function showContact() {
+            showSection('contactSection');
+        }
+
+        function submitContact() {
+            alert('Contact form submitted!');
+        
+     }
+        // Function to bind withdrawal account
+        function bindWithdrawalAccount() {
+            alert('Binding withdrawal account is under development.');
+            // You can implement the withdrawal account binding here
+        }
+
+        // Function to invite users
+        function invite() {
+            alert('Invite feature is under development.');
+            // You can implement the invite feature here
+        }
+
+        // Function to download the app
+        function downloadApp() {
+            alert('Downloading the app is under development.');
+            // You can implement the app download functionality here
+        }
+
+        // Function to update withdrawal history table
+        function updateWithdrawalHistory() {
+            const withdrawalTable = document.getElementById('withdrawalHistory')?.querySelector('tbody');
+            if (withdrawalTable) {
+                withdrawalTable.innerHTML = '';
+
+                withdrawalHistory.forEach(record => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `<td>${record.date}</td>
+                        <td>Ksh ${record.amount}</td>
+                    `;
+                    withdrawalTable.appendChild(row);
+                });
+            }
+        }
+
+        // Function to show transaction history
+        function showTransactionHistory() {
+            document.getElementById('machineSection').classList.remove('active');
+            document.getElementById('historySection').classList.add('active');
+            updateWithdrawalHistory();
+        }
+
+        // Function to show rented machines
+        function showRentedMachines() {
+            document.getElementById('machineSection').classList.remove('active');
+            document.getElementById('rentedMachinesSection').classList.add('active');
+            updateRentedMachines();
+        }
+
+        // Function to update rented machines table
+        function updateRentedMachines() {
+            const rentedMachinesTable = document.getElementById('rentedMachines')?.querySelector('tbody');
+            if (rentedMachinesTable) {
+                rentedMachinesTable.innerHTML = '';
+
+                if (currentUser.rentedMachines.length > 0) {
+                    currentUser.rentedMachines.forEach(machine => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${machine.name}</td>
+                            <td>KES ${machine.rentalPrice}</td>
+                            <td>KES ${machine.dailyIncome}</td>
+                            <td>${machine.rentedDate}</td>
+                        `;
+                        rentedMachinesTable.appendChild(row);
+                    });
+                } else {
+                    rentedMachinesTable.innerHTML = '<tr><td colspan="4">No machines rented yet.</td></tr>';
+                }
+            }
+        }
+
+        // Function to update user balance
+        function updateBalance() {
+            const balanceDiv = document.getElementById('userBalance');
+            if (balanceDiv) {
+                balanceDiv.textContent = `Balance: Ksh ${currentUser.income}`;
+            }
+        }
+
+        // Function to go back to machine section
+        function goBack() {
+            document.getElementById('historySection').classList.remove('active');
+            document.getElementById('rentedMachinesSection').classList.remove('active');
+            document.getElementById('vipSection').classList.remove('active');
+            document.getElementById('machineSection').classList.add('active');
+        }
+
+        // Function to show VIP section
+        function showVIPSection() {
+            document.getElementById('machineSection').classList.remove('active');
+            document.getElementById('vipSection').classList.add('active');
+        }
+
+        // Function to show VIP1 machines
+        function showVIP1() {
+            const vipMachinesDiv = document.getElementById('vipMachines');
+            vipMachinesDiv.innerHTML = '';
+
+            vipMachines.vip1.forEach(machine => {
+                const machineDiv = document.createElement('div');
+                machineDiv.innerHTML = `
+                    <h3>${machine.name}</h3>
+                    <p>Rental Price: Ksh ${machine.rentalPrice}</p>
+                    <p>Daily Income: Ksh ${machine.dailyIncome}</p>
+                    <button onclick="rentMachine(${machine.id})">Rent</button>
+                `;
+                vipMachinesDiv.appendChild(machineDiv);
+            });
+        }
+
+        // Function to show VIP2 machines
+        function showVIP2() {
+            const vipMachinesDiv = document.getElementById('vipMachines');
+            vipMachinesDiv.innerHTML = '';
+
+            vipMachines.vip2.forEach(machine => {
+                const machineDiv = document.createElement('div');
+                machineDiv.innerHTML = `
+                    <h3>${machine.name}</h3>
+                    <p>Rental Price: Ksh ${machine.rentalPrice}</p>
+                    <p>Daily Income: Ksh ${machine.dailyIncome}</p>
+                    <button onclick="rentMachine(${machine.id})">Rent</button>
+                `;
+                vipMachinesDiv.appendChild(machineDiv);
+            });
+        }
+
+        // Function to show VIP3 machines
+        function showVIP3() {
+            const vipMachinesDiv = document.getElementById('vipMachines');
+            vipMachinesDiv.innerHTML = '';
+
+            vipMachines.vip3.forEach(machine => {
+                const machineDiv = document.createElement('div');
+                machineDiv.innerHTML = `
+                    <h3>${machine.name}</h3>
+                    <p>Rental Price: Ksh ${machine.rentalPrice}</p>
+                    <p>Daily Income: Ksh ${machine.dailyIncome}</p>
+                    <button onclick="rentMachine(${machine.id})">Rent</button>
+                `;
+                vipMachinesDiv.appendChild(machineDiv);
+            });
+        }
+    </script>
+</body>
+</html>
