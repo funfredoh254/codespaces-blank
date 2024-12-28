@@ -3,544 +3,397 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DIGITALSHINERS COMPANY</title>
+    <title>MASENO SPACE 1</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 1;
-            padding: 10;
-            background-color: hsl(22, 93%, 59%);
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-        }
-        #main-header {
-            background-color: blue;
-            color: Grey;
-            padding-top: 5px;
-            min-height: 80px;
-            border-bottom: #0779e4 3px solid;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+           background: linear-gradient(to right, white, white, orange,blue);
+ 
+            min-height: 100vh;
             position: relative;
-            overflow: hidden;
         }
-        #main-header h1 {
-            position: absolute;
-            white-space: nowrap;
-            text-transform: uppercase;
-            font-size: 30px;
-            animation: moveText 7s linear infinite;
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
         }
-        @keyframes moveText {
-            from { left: 100%; }
-            to { left: -100%; }
-        }
-        .btn {
-            display: inline-block;
-            color: #333;
-            background-color: #cfffff;
-            padding: 4px 18px;
-            border: solid 1px #333;
-            text-decoration: none;
-            margin: 5px;
-        }
-        .btn:hover {
-            background-color: #e4e4e4;
-        }
-        .form-section, .machine-section, .history-section, .rented-machines-section, .vip-section {
+        #app {
             display: none;
+            width: 100%;
+            max-width: 1200px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
-        .active {
+        header {
+            background: red;
+            color: white;
+            padding: 10px 0;
+            position: relative;
+      
+      text-align: center;
+        }
+        .marquee {
+            position: fixed;
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: marquee 8s linear infinite;
+        background-color: transparent;
+  top:0;
+ color: blue;
+        }
+        @keyframes marquee {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-100%); }
+        }
+        .logo {
+            position: fixed;
+            top: 25px;
+            right: 10px;
+            width: 50px;
+        }
+        nav button {
+            margin: 0 10px;
+            padding: 10px;
+            background: transparent;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .section {
+            display: none;
+            padding: 20px;
+        }
+        .section.active {
             display: block;
         }
-        .form-container, .machine-list, .history-container, .rented-machines-container, .vip-container {
-            background: orange;
-            padding: 20px;
-            margin: 30px 0;
-            border: 1px solid #ddd;
+        .products img {
+            width: 100px;
+            cursor: pointer;
         }
-        input[type="text"], input[type="password"], input[type="number"] {
-            width: 100%;
+        footer {
             padding: 10px;
-            margin: 10px 0;
+            background: transparent;
+            color: white;
+            text-align: center;
+           bottom:0;
+position: fixed;
         }
-        .history, .rented-machines {
-            margin-top: 20px;
-        }
-        .history table, .rented-machines table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        .history th, .history td, .rented-machines th, .rented-machines td {
-            padding: 10px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-        .history th, .rented-machines th {
-            background-color: blue;
-        }
-        .balance
-            font-size: 18px;
-            margin: 10px 0;
-        }
+        footer a {
+            color: black;
+            margin: 0 10px;
+       
+ }
     </style>
 </head>
-<body>
-    <header id="main-header">
-        <div class="container">
-            <h1>DIGITALSHINERS COMPANY</h1>
-        </div>
-    </header>
+<body onload="showLoading()">
+    <div id="loading">
+        <img src="https://i.imgur.com/lIRouNz.jpeg" alt="Loading...">
+    </div>
 
-    <div class="container">
-        <!-- Registration Form -->
-        <div id="registrationSection" class="form-section active">
-            <div class="form-container">
-                <h2>Register</h2>
-                <form id="registrationForm">
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" required>
-                    <label for="phone">Phone (+254):</label>
-                    <input type="text" id="phone" name="phone" required>
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required>
-                    <button type="button" onclick="register()">Register</button>
-                    <button type="button" onclick="switchToLogin()">Already Registered? Login</button>
+    <div id="app">
+        <header>
+           <div class="three-d-text">MASENO</div>
+
+<style>
+    .three-d-text {
+        font-size: 52px;
+        color: #3498db; /* Main text color */
+        text-shadow: 
+            1px 1px 0 #2c3e50,
+            2px 2px 0 #2c3e50,
+            3px 3px 0 #2c3e50,
+            4px 4px 0 #2c3e50,
+            5px 5px 0 #2c3e50; /* Shadow colors and offsets */
+        transform: translateZ(0);
+        position: relative;
+        display: inline-block;
+    }
+</style>
+ <div class="marquee"> MASENO SPACE 1</div>
+            <img src="https://i.imgur.com/EXOM2sz.jpeg" alt="Logo" class="logo">
+            <nav>
+             <button onclick="showSection('home')" style="background-color: orange; color: white;">Home</button>
+               <button onclick="showSection('shop')" style="background: linear-gradient(145deg, orange, #ffffff); border: none; border-radius: 10px; box-shadow: 5px 5px 15px green, -5px -5px 15px blue; padding: 5px 15px; font-size: 11px; cursor: pointer;">Shop</button>
+                <button onclick="showSection('about')" style="background: linear-gradient(145deg, orange, #ffffff); border: none; border-radius: 10px; box-shadow: 5px 5px 15px green, -5px -5px 15px blue; padding: 5px 15px; font-size: 11px; cursor: pointer;">About Us</button>
+               <button onclick="showSection('contact')" style="background: linear-gradient(145deg, orange, #ffffff); border: none; border-radius: 10px; box-shadow: 5px 5px 15px green, -5px -5px 15px blue; padding: 5px 15px; font-size: 11px; cursor: pointer;">Contact</button>
+            <button onclick="showSection('cart')" style="background: linear-gradient(145deg, orange, #ffffff); border: none; border-radius: 10px; box-shadow: 5px 5px 15px green, -5px -5px 15px blue; padding: 5px 15px; font-size: 11px; cursor: pointer;">Cart</button>
+            </nav>
+        </header>
+
+        <main>
+            <section id="home" class="section active">
+             <div class="three-d-text">welcome to MASENO SPACE 1
+       Your one- stop shop for all your needs</div>
+
+<style>
+    .three-d-text {
+        font-size: 37px;
+        color: #3498db; /* Main text color */
+        text-shadow: 
+            1px 1px 0#2c3e50,
+            2px 2px 0#2c3e50 ,
+            3px 3px 0 #2c3e50,
+            4px 4px 0#2c3e50,
+            5px 5px 0#2c3e50; /* Shadow colors and offsets */
+        transform: translateZ(0);
+        position: relative;
+        display: inline-block;
+    }
+</style>
+   <h1>Experience Shopping Like Never Before _ Quality and Convenience Combined </h1>
+                <p style="color: blue;">Find What You Love _ Fast Shipping and Easy Returns!</p>
+                <button onclick="showSection('shop')">Shop Now</button>
+            </section>
+
+            <section id="shop" class="section">
+                <h2>Shop</h2>
+                <div class="shop-buttons">
+              
+<button onclick="showCategory('men')" style="background: linear-gradient(145deg, red, #ff9800); color: white; border: none; border-radius: 10px; box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.8); padding: 5px 15px; font-size: 11px; font-family: 'Arial', sans-serif; cursor: pointer; transition: all 0.2s ease;">Mens' Clothing</button>
+
+   <button onclick="showCategory('electronics')" style="background: linear-gradient(145deg, green, #ff9800); color: white; border: none; border-radius: 10px; box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.8); padding: 5px 15px; font-size: 11px; font-family: 'Arial', sans-serif; cursor: pointer; transition: all 0.2s ease;">Electronics</button>
+ <button onclick="showCategory('women')" style="background: linear-gradient(145deg, blue, #ff9800); color: white; border: none; border-radius: 10px; box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.8); padding: 5px 15px; font-size: 11px; font-family: 'Arial', sans-serif; cursor: pointer; transition: all 0.2s ease;">Women's Clothing</button>
+                </div>
+                <div class="products" id="products"></div>
+                <button onclick="showSection('home')">Back</button>
+            </section>
+
+            <section id="cart" class="section">
+                <h2>Your Cart</h2>
+                <div id="cartItems"></div>
+                <div id="totalCost"></div>
+                <button onclick="checkout()">Proceed to Checkout</button>
+                <button onclick="showSection('shop')">Back</button>
+            </section>
+
+            <section id="checkout" class="section">
+                <h2>Checkout</h2>
+                <div id="checkoutDetails"></div>
+                <div id="totalAmount"></div>
+             <button id="toggleFormButton">Payment Form</button>
+
+<div id="paymentForm" style="display: none;">
+    <h3>Payment Details</h3>
+    <form id="paymentDetailsForm">
+       <label for="name">Name:</label>
+<input type="text" id="name" name="name" required><br><br>
+ <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required><br><br>
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="country">County:</label>
+        <input type="text" id="country" name="country" required><br><br>
+
+        <button type="submit">Submit details</button>
+   <button onclick="initiatePayment()">Initiate Payment</button>
  </form>
-            </div>
-        </div>
-
-        <!-- Login Form -->
-        <div id="loginSection" class="form-section">
-            <div class="form-container">
-                <h2>Login</h2>
-                <form id="loginForm">
-                    <label for="loginUsername">Username:</label>
-                    <input type="text" id="loginUsername" name="loginUsername" required>
-                    <label for="loginPassword">Password:</label>
-                    <input type="password" id="loginPassword" name="loginPassword" required>
-                    <button type="button" onclick="login()">Login</button>
-                </form>
-            </div>
-        </div>
-
-        <!-- Machine List -->
-        <div id="machineSection" class="machine-section">
-            <div class="balance" id="userBalance"></div>
-            <div>
-                <button class="btn" onclick="showVIPSection()">VIP</button>
-                
-                <button class="btn" onclick="showTransactionHistory()">Transaction History</button>
-                <button class="btn" onclick="showRentedMachines()">Rented Machines</button>
-            </div>
-
-            <div class="machine-list">
-                <h2>Available Machines</h2>
-                <div id="machines">
-                    <!-- Machines will be listed here dynamically -->
-                </div>
-            </div>
-            <div>
-        <button class="btn" style="margin-top: 10px;" onclick="openWhatsApp()">WhatsApp</button> 
-                <button class="btn" onclick="withdraw()">Withdraw</button>
-                  
-                <button class="btn" onclick="deposit()">Deposit</button>
-                 <h0.5 style="color: blue;">www.digitalshiners.com</h0.5>        
+    <div id="successMessage" style="display: none; background-color: green; color: white; padding: 10px; position: absolute; z-index: 1000; margin-top: 10px;">
+        Payment details submitted successfully! Initiate payment.
+    </div>
 </div>
-        </div>
 
-        <!-- Income and Withdrawal History -->
-        <div id="historySection" class="history-section">
-            <div class="history-container">
-                <h2>Transaction History</h2>
-                <table id="withdrawalHistory">
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Amount (Ksh)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Withdrawal history will be listed here dynamically -->
-                    </tbody>
-                </table>
-            </div>
-            <button class="btn" onclick="goBack()">Back</button>
-        </div>
+<style>
+    #paymentForm {
+        border: 1px solid #ccc; /* Optional: for visibility */
+        padding: 15px;
+        margin-top: 10px;
+        position: relative; /* Set relative position for absolute child */
+    }
+</style>
 
-        <!-- Rented Machines List -->
-        <div id="rentedMachinesSection" class="rented-machines-section">
-            <div class="rented-machines-container">
-                <h2>Rented Machines</h2>
-                <table id="rentedMachines">
-                    <thead>
-                        <tr>
-                            <th>Machine Name</th>
-                            <th>Rental Price (Ksh)</th>
-                            <th>Daily Income (Ksh)</th>
-                            <th>Rented Date</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Rented machines will be listed here dynamically -->
-                    </tbody>
-                </table>
-            </div>
-            <button class="btn" onclick="goBack()">Back</button>
-            <button class="btn" onclick="receiveIncome()">Receive Income</button>
-        </div>
+<script>
+    document.getElementById('toggleFormButton').addEventListener('click', function() {
+        const form = document.getElementById('paymentForm');
+        form.style.display = form.style.display === 'none' ? 'block' : 'none';
+    });
 
-        <!-- VIP Section -->
-        <div id="vipSection" class="vip-section">
-            <div class="vip-container">
-                <h2>VIP Section</h2>
-                <div>
-                    <button class="btn" onclick="showVIP1()">VIP2</button>
-                    <button class="btn" onclick="showVIP2()">VIP3</button>
-                    <button class="btn" onclick="showVIP3()">VIP4</button>
-                </div>
-                <div id="vipMachines">
-                    <!-- VIP machines will be listed here dynamically -->
-                </div>
-            </div>
-            <button class="btn" onclick="goBack()">Back</button>
-           
-        </div> 
-        </div>
+    document.getElementById('paymentDetailsForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+        const successMessage = document.getElementById('successMessage');
+        successMessage.style.display = 'block'; // Show the success message
         
+        // Automatically hide the message after 4 seconds
+        setTimeout(function() {
+            successMessage.style.display = 'none';
+        }, 4000);
+    });
+</script>
+   
+                <button onclick="showSection('cart')">Back</button>
+            </section>
+
+            <section id="about" class="section">
+                <h2>About Us</h2>
+                <p>Company Name: MASENO SPACE 1</p>
+                <p>Location: Maseno, Kenya</p>
+                <p> Email: masenospace1@gmail.com</p>
+             <button onclick="showSection('home')">Back</button>
+            </section>
+
+            <section id="contact" class="section">
+                <h2>Contact Us</h2>
+                <form onsubmit="sendMessage(event)">
+                    <input type="text" placeholder="Name" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="text" placeholder="Subject" required>
+                    <textarea placeholder="Message" required></textarea>
+                    <button type="submit">Send</button>
+                </form>
+                <button onclick="showSection('home')">Back</button>
+            </section>
+        </main>
+
+        <footer>
+  
+    _________<a href="#" style="font-size: 11px; color: blue;">Instagram</a>
+    <a href="#" style="font-size: 11px; color: blue;">Facebook</a>
+    <a href="#" style="font-size: 11px; color: blue;">WhatsApp</a>
+    <a href="#" style="font-size: 11px; color: blue;">Twitter</a>
+</footer>
+    </div>
+
     <script>
-        // Sample data for machines
-        const machines = [
-            { id: 1, name: "Machine A001", rentalPrice: 1000, dailyIncome: 96 },
-            { id: 2, name: "Machine B001", rentalPrice: 2000, dailyIncome: 190 },
-            { id: 3, name: "Machine C001", rentalPrice: 3000, dailyIncome: 270 },
-        ];
-
-        // Sample data for VIP machines
-        const vipMachines = {
-            vip1: [
-                { id: 4, name: "Machine A002", rentalPrice: 1500, dailyIncome: 110 },
-                { id: 5, name: "Machine B002", rentalPrice: 2500, dailyIncome: 220 },
-                { id: 6, name: "Machine C002", rentalPrice: 3500, dailyIncome: 310 },
-            ],
-            vip2: [
-                { id: 7, name: "Machine A003", rentalPrice: 2000, dailyIncome: 200 },
-                { id: 8, name: "Machine B003", rentalPrice: 3000, dailyIncome: 250 },
-                { id: 9, name: "Machine C003", rentalPrice: 4000, dailyIncome: 370 },
-            ],
-            vip3: [
-                { id: 10, name: "Machine A004", rentalPrice: 4500, dailyIncome: 410 },
-                { id: 11, name: "Machine B004", rentalPrice: 8000, dailyIncome: 600 },
-                { id: 12, name: "Machine C004", rentalPrice: 10000, dailyIncome: 800 },
-            ]
-        };
-
-        // Array to store registered users
-        const users = [];
-
-        // Current logged-in user
-        let currentUser = null;
-
-        // Array to store income history
-        const incomeHistory = [];
-
-        // Array to store withdrawal history
-        const withdrawalHistory = [];
-
-        function register() {
-            const username = document.getElementById('username').value;
-            const phone = document.getElementById('phone').value;
-            const password = document.getElementById('password').value;
-
-            users.push({ username, phone, password, rentedMachines: [], income: 0 });
-            alert('Registration successful!');
-            document.getElementById('registrationForm').reset();
-            document.getElementById('registrationSection').classList.remove('active');
-            document.getElementById('loginSection').classList.add('active');
+        function showLoading() {
+            setTimeout(() => {
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('app').style.display = 'block';
+            }, 2000);
         }
 
-        function login() {
-            const username = document.getElementById('loginUsername').value;
-            const password = document.getElementById('loginPassword').value;
+        function showSection(section) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(s => s.classList.remove('active'));
+            document.getElementById(section).classList.add('active');
+        }
 
-            currentUser = users.find(user => user.username === username && user.password === password);
+        function showCategory(category) {
+            const products = document.getElementById('products');
+            products.innerHTML = ''; // Clear previous products
+            let productData = [];
 
-            if (currentUser) {
-                alert('Login successful!');
-                document.getElementById('loginSection').classList.remove('active');
-                document.getElementById('machineSection').classList.add('active');
-                showMachines();
-                updateBalance();
+            if (category === 'electronics') {
+                productData = [
+                    { img: 'https://i.imgur.com/hlghZd2.jpeg', name: 'USB Multi-cable', price: 'KSh 800', desc: 'This versatile cable features multiple connectors, allowing you to transfer data to various devices' },
+                    { img: 'https://i.imgur.com/oiIxZI3.jpeg', name: 'HDMI cable', price: 'KSh 2000', desc: 'With support for 4K resolution and advanced features like Ethernet connectivity and 3D support' },
+                    { img: 'https://i.imgur.com/m9TrPAL.jpeg', name: 'USB cables', price: 'KSh 600', desc: 'Made with high-quality materials, it features a sturdy design that resist tangling and wear ' },
+                    { img: 'https://i.imgur.com/gslk8AP.jpeg', name: 'Wired mouse', price: 'KSh 500', desc: 'This mouse features a responsive sensor that ensures accurate tracking, making it perfect for both work and gaming ' }
+                ];
+            } else if (category === 'men') {
+                productData = [
+                    { img: 'https://i.imgur.com/C6j1ue7.jpeg', name: 'Short sleeve shirt', price: 'KSh 1500', desc: 'Crafted from high-quality fabrics,these shirts are perfect for any occasion ' },
+                    { img: 'https://i.imgur.com/NEgIMmd.jpeg', name: 'Modern fit shirt', price: 'KSh 1500', desc: 'Featuring modern fits and a variety of colors and patterns ' },
+                    { img: 'https://i.imgur.com/Ka6m1j7.jpeg', name: ' Cotton shirt', price: 'KSh 2000', desc: 'High-quality made from 100% cotton' },
+                    { img: 'https://i.imgur.com/Y8qs63M.jpeg', name: 'Summer Duo wear', price: 'KSh 2200', desc: 'Crafted from lightweight, breathable fabrics to keep you cool all season long ' },
+                    { img: 'https://i.imgur.com/GnDYIMX.jpeg', name: 'Easy outfit', price: 'KSh 2500', desc: ' Perfect combination of a stylish shirt and comfortable trouser crafted from lightweight material ' }
+                ];
+            } else if (category === 'women') {
+                productData = [
+                    { img: 'https://i.imgur.com/9KroKCB.jpeg', name: 'Tailored trouser', price: 'KSh 1000', desc: 'Designed to flatter and enhance your silhouette while providing all-day comfort ' },
+                    { img: 'https://i.imgur.com/Vd5JFqG.jpeg', name: 'Feminine fit pants', price: 'KSh 1200', desc: 'Made from high-quality stretchy fabric, they allow easy movement without sacrificing style ' },
+                    { img: 'https://i.imgur.com/tzpFchM.jpeg', name: 'Classic Comfort Short', price: 'KSh 1500', desc: 'With a versatile cut that flatter all body types, they feature an adjustable waistband for a customizable fit' },
+                    { img: 'https://i.imgur.com/J9OYiu0.jpeg', name: 'Classic cotton crop', price: 'KSh 1000', desc: 'Made from soft breathable cotton, this top offers comfort and a flattering fit for any occasion ' }
+                ];
+            }
+
+            productData.forEach(product => {
+                const productDiv = document.createElement('div');
+                productDiv.innerHTML = `
+                    <img src="${product.img}" alt="${product.name}" onclick="showProductDetails('${product.img}', '${product.name}', '${product.price}', '${product.desc}')">
+                    <h3>${product.name}</h3>
+                    <p>${product.price}</p>
+                    <button onclick="addToCart('${product.name}', '${product.price}', '${product.img}')">Add to Cart</button>
+                `;
+                products.appendChild(productDiv);
+            });
+            showSection('shop');
+        }
+
+        function showProductDetails(img, name, price, desc) {
+            const details = `
+                <div>
+                    <img src="${img}" alt="${name}" style="width:270px;">
+                    <h3>${name}</h3>
+                    <p>${desc}</p>
+                    <p>${price}</p>
+                </div>
+            `;
+            document.getElementById('products').innerHTML = details; // Show details
+        }
+
+        let cart = [];
+
+        function addToCart(name, price, img) {
+            cart.push({ name, price, img });
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartItems = document.getElementById('cartItems');
+            cartItems.innerHTML = '';
+            let total = 0;
+
+            cart.forEach(item => {
+                cartItems.innerHTML += `
+                    <div>
+                        <img src="${item.img}" alt="${item.name}" style="width:50px;">
+                        <p>${item.name} - ${item.price}</p>
+                        <button onclick="removeFromCart('${item.name}')">Remove</button>
+                    </div>
+                `;
+                total += parseFloat(item.price.replace('KSh ', ''));
+            });
+
+            document.getElementById('totalCost').innerHTML = `Total: KSh ${total}`;
+        }
+
+        function removeFromCart(name) {
+            cart = cart.filter(item => item.name !== name);
+            updateCart();
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert('Your cart is empty.');
+                return;
+            }
+            const total = cart.reduce((sum, item) => sum + parseFloat(item.price.replace('KSh ', '')), 0);
+            document.getElementById('totalAmount').innerHTML = `Total Amount: KSh ${total}`;
+            document.getElementById('checkoutDetails').innerHTML = cart.map(item => `<p>${item.name} - ${item.price}</p>`).join('');
+            showSection('checkout');
+        }
+
+        function initiatePayment() {
+            const pin = prompt("Enter your M-Pesa PIN to complete the payment:");
+            if (pin) {
+                alert(`Payment of KSh ${cart.reduce((sum, item) => sum + parseFloat(item.price.replace('KSh ', '')), 0)} completed successfully.`);
+                cart = []; // Clear the cart after payment
+                updateCart();
+                showSection('home'); // Go back to home after payment
             } else {
-                alert('Invalid username or password');
-            }
-            document.getElementById('loginForm').reset();
-        }
-
-        // Function to display available machines
-        function showMachines() {
-            const machinesDiv = document.getElementById('machines');
-            machinesDiv.innerHTML = '';
-
-            machines.forEach(machine => {
-                const machineDiv = document.createElement('div');
-                machineDiv.innerHTML = `
-                    <h3>${machine.name}</h3>
-                    <p>Rental Price: Ksh ${machine.rentalPrice}</p>
-                    <p>Daily Income: Ksh ${machine.dailyIncome}</p>
-                    <button onclick="rentMachine(${machine.id})">Rent</button>
-                `;
-                machinesDiv.appendChild(machineDiv);
-            });
-        }
-
-        // Function to rent a machine
-        function rentMachine(machineId) {
-            const machine = [...machines, ...vipMachines.vip1, ...vipMachines.vip2, ...vipMachines.vip3].find(m => m.id === machineId);
-            if (confirm(`Do you want to rent ${machine.name} for Ksh ${machine.rentalPrice}?`)) {
-                if (currentUser.income >= machine.rentalPrice) { // Check if user has enough balance
-                    currentUser.rentedMachines.push({ ...machine, rentedDate: new Date().toLocaleDateString() });
-                    currentUser.income -= machine.rentalPrice; // Deduct rental price from balance
-                    alert(`You rented ${machine.name}`);
-                    updateBalance();
-                } else {
-                    alert('Insufficient balance to rent this machine.');
-                }
+                alert('Payment cancelled.');
             }
         }
 
-        // Function to update user's income based on rented machines
-        function receiveIncome() {
-            const today = new Date().toLocaleDateString();
-
-            currentUser.rentedMachines.forEach(machine => {
-                if (!machine.lastIncomeDate || machine.lastIncomeDate !== today) {
-                    machine.lastIncomeDate = today;
-                    currentUser.income += machine.dailyIncome;
-                    incomeHistory.push({ date: today, amount: machine.dailyIncome });
-                }
-            });
-
-            updateIncomeHistory();
-            alert(`You received income for today!`);
-            updateBalance();
-        }
-
-        // Function to update income history table
-        function updateIncomeHistory() {
-            const incomeTable = document.getElementById('incomeHistory')?.querySelector('tbody');
-            if (incomeTable) {
-                incomeTable.innerHTML = '';
-
-                incomeHistory.forEach(record => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${record.date}</td>
-                        <td>Ksh ${record.amount}</td>
-                    `;
-                    incomeTable.appendChild(row);
-                });
-            }
-        }
-
-        // Function to withdraw money
-        function withdraw() {
-            const amount = prompt('Enter amount to withdraw:');
-            if (amount && !isNaN(amount)) {
-                if (parseFloat(amount) <= currentUser.income) {
-                    const today = new Date().toLocaleString();
-                    withdrawalHistory.push({ date: today, amount: parseFloat(amount) });
-                    currentUser.income -= parseFloat(amount);
-                    updateWithdrawalHistory();
-                    alert(`You withdrew Ksh ${amount}`);
-                    updateBalance();
-                } else {
-                    alert('Insufficient funds');
-                }
-            } else {
-                alert('Invalid amount');
-            }
-        }
-
-        // Function to deposit money
-        function deposit() {
-            const amount = prompt('Enter amount to deposit:');
-            if (amount && !isNaN(amount)) {
-                currentUser.income += parseFloat(amount);
-                alert(`You deposited Ksh ${amount}`);
-                updateBalance();
-            } else {
-                alert('Invalid amount');
-            }
-        }
-
-        // Function to show team (under development)
-        function showTeam() {
-            alert('Team section is under development.');
-        }
-
-        // Function to show service options
-        function showService() {
-            document.getElementById('machineSection').classList.remove('active');
-            document.getElementById('serviceSection').classList.add('active');
-        }
-
-        // Function to open WhatsApp link
-        function openWhatsApp() {
-            window.open('https://chat.whatsapp.com/KDH1Y9kGg804Zgn5z3pbxt');
-        }
-
-        function showContact() {
-            showSection('contactSection');
-        }
-
-        function submitContact() {
-            alert('Contact form submitted!');
-        
-     }
-        // Function to bind withdrawal account
-        function bindWithdrawalAccount() {
-            alert('Binding withdrawal account is under development.');
-            // You can implement the withdrawal account binding here
-        }
-
-        // Function to invite users
-        function invite() {
-            alert('Invite feature is under development.');
-            // You can implement the invite feature here
-        }
-
-        // Function to download the app
-        function downloadApp() {
-            alert('Downloading the app is under development.');
-            // You can implement the app download functionality here
-        }
-
-        // Function to update withdrawal history table
-        function updateWithdrawalHistory() {
-            const withdrawalTable = document.getElementById('withdrawalHistory')?.querySelector('tbody');
-            if (withdrawalTable) {
-                withdrawalTable.innerHTML = '';
-
-                withdrawalHistory.forEach(record => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `<td>${record.date}</td>
-                        <td>Ksh ${record.amount}</td>
-                    `;
-                    withdrawalTable.appendChild(row);
-                });
-            }
-        }
-
-        // Function to show transaction history
-        function showTransactionHistory() {
-            document.getElementById('machineSection').classList.remove('active');
-            document.getElementById('historySection').classList.add('active');
-            updateWithdrawalHistory();
-        }
-
-        // Function to show rented machines
-        function showRentedMachines() {
-            document.getElementById('machineSection').classList.remove('active');
-            document.getElementById('rentedMachinesSection').classList.add('active');
-            updateRentedMachines();
-        }
-
-        // Function to update rented machines table
-        function updateRentedMachines() {
-            const rentedMachinesTable = document.getElementById('rentedMachines')?.querySelector('tbody');
-            if (rentedMachinesTable) {
-                rentedMachinesTable.innerHTML = '';
-
-                if (currentUser.rentedMachines.length > 0) {
-                    currentUser.rentedMachines.forEach(machine => {
-                        const row = document.createElement('tr');
-                        row.innerHTML = `
-                            <td>${machine.name}</td>
-                            <td>KES ${machine.rentalPrice}</td>
-                            <td>KES ${machine.dailyIncome}</td>
-                            <td>${machine.rentedDate}</td>
-                        `;
-                        rentedMachinesTable.appendChild(row);
-                    });
-                } else {
-                    rentedMachinesTable.innerHTML = '<tr><td colspan="4">No machines rented yet.</td></tr>';
-                }
-            }
-        }
-
-        // Function to update user balance
-        function updateBalance() {
-            const balanceDiv = document.getElementById('userBalance');
-            if (balanceDiv) {
-                balanceDiv.textContent = `Balance: Ksh ${currentUser.income}`;
-            }
-        }
-
-        // Function to go back to machine section
-        function goBack() {
-            document.getElementById('historySection').classList.remove('active');
-            document.getElementById('rentedMachinesSection').classList.remove('active');
-            document.getElementById('vipSection').classList.remove('active');
-            document.getElementById('machineSection').classList.add('active');
-        }
-
-        // Function to show VIP section
-        function showVIPSection() {
-            document.getElementById('machineSection').classList.remove('active');
-            document.getElementById('vipSection').classList.add('active');
-        }
-
-        // Function to show VIP1 machines
-        function showVIP1() {
-            const vipMachinesDiv = document.getElementById('vipMachines');
-            vipMachinesDiv.innerHTML = '';
-
-            vipMachines.vip1.forEach(machine => {
-                const machineDiv = document.createElement('div');
-                machineDiv.innerHTML = `
-                    <h3>${machine.name}</h3>
-                    <p>Rental Price: Ksh ${machine.rentalPrice}</p>
-                    <p>Daily Income: Ksh ${machine.dailyIncome}</p>
-                    <button onclick="rentMachine(${machine.id})">Rent</button>
-                `;
-                vipMachinesDiv.appendChild(machineDiv);
-            });
-        }
-
-        // Function to show VIP2 machines
-        function showVIP2() {
-            const vipMachinesDiv = document.getElementById('vipMachines');
-            vipMachinesDiv.innerHTML = '';
-
-            vipMachines.vip2.forEach(machine => {
-                const machineDiv = document.createElement('div');
-                machineDiv.innerHTML = `
-                    <h3>${machine.name}</h3>
-                    <p>Rental Price: Ksh ${machine.rentalPrice}</p>
-                    <p>Daily Income: Ksh ${machine.dailyIncome}</p>
-                    <button onclick="rentMachine(${machine.id})">Rent</button>
-                `;
-                vipMachinesDiv.appendChild(machineDiv);
-            });
-        }
-
-        // Function to show VIP3 machines
-        function showVIP3() {
-            const vipMachinesDiv = document.getElementById('vipMachines');
-            vipMachinesDiv.innerHTML = '';
-
-            vipMachines.vip3.forEach(machine => {
-                const machineDiv = document.createElement('div');
-                machineDiv.innerHTML = `
-                    <h3>${machine.name}</h3>
-                    <p>Rental Price: Ksh ${machine.rentalPrice}</p>
-                    <p>Daily Income: Ksh ${machine.dailyIncome}</p>
-                    <button onclick="rentMachine(${machine.id})">Rent</button>
-                `;
-                vipMachinesDiv.appendChild(machineDiv);
-            });
+        function sendMessage(event) {
+            event.preventDefault();
+            alert('Message sent successfully');
         }
     </script>
 </body>
